@@ -117,6 +117,51 @@ class ViewController: UIViewController {
         // Create local copy of operations
         var operationsToReduce = elements
         
+        var i=0
+        
+        while( i  < operationsToReduce.count){
+            if(operationsToReduce.count <= i+2){
+                break
+            }
+            let left = Double(operationsToReduce[i])!
+            let operand = operationsToReduce[i+1]
+            let right = Double(operationsToReduce[i+2])!
+            
+            var result: Double
+            if operand=="x"{
+                result = left * right
+                operationsToReduce.remove(at:i+2)
+                operationsToReduce.remove(at:i+1)
+                operationsToReduce.remove(at:i)
+                operationsToReduce.insert("\(result)", at: i)
+                if(operationsToReduce.count <= 1){
+                    break
+                }
+              
+            }
+            
+            else if operand=="/"{
+                result = left / right
+                operationsToReduce.remove(at:i+2)
+                operationsToReduce.remove(at:i+1)
+                operationsToReduce.remove(at:i)
+                operationsToReduce.insert("\(result)", at: i)
+                if(operationsToReduce.count <= 1){
+                    break
+                }
+            }
+            
+            else{
+                i=i+2
+            }
+        
+        }
+        
+    
+        
+        
+
+        
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
             let left = Double(operationsToReduce[0])!
@@ -127,8 +172,6 @@ class ViewController: UIViewController {
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
-            case "x": result = left * right
-            case "/": result = left / right
                 
             default: fatalError("Unknown operator !")
             }
