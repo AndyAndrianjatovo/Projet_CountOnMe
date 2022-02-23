@@ -62,6 +62,11 @@ class ViewController: UIViewController {
     
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
         if canAddOperator {
+            let el = textView.text.split(separator: "=").map { "\($0)" }
+            if(el.count >= 2){
+                textView.text.removeAll()
+                textView.text.append(el[1])
+            }
             textView.text.append(" + ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -72,6 +77,11 @@ class ViewController: UIViewController {
     
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
         if canAddOperator {
+            let el = textView.text.split(separator: "=").map { "\($0)" }
+            if(el.count >= 2){
+                textView.text.removeAll()
+                textView.text.append(el[1])
+            }
             textView.text.append(" - ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -82,6 +92,11 @@ class ViewController: UIViewController {
     
     @IBAction func tappedDivisionButton(_ sender: UIButton) {
         if canAddOperator {
+            let el = textView.text.split(separator: "=").map { "\($0)" }
+            if(el.count >= 2){
+                textView.text.removeAll()
+                textView.text.append(el[1])
+            }
             textView.text.append(" / ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -92,6 +107,11 @@ class ViewController: UIViewController {
     
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
         if canAddOperator {
+            let el = textView.text.split(separator: "=").map { "\($0)" }
+            if(el.count >= 2){
+                textView.text.removeAll()
+                textView.text.append(el[1])
+            }
             textView.text.append(" x ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
